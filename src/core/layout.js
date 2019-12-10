@@ -170,7 +170,7 @@ define(function(require, exports, module) {
     Layout.register = register;
 
     Minder.registerInitHook(function(options) {
-        this.refresh();
+        // this.refresh();
     });
 
     /**
@@ -415,10 +415,10 @@ define(function(require, exports, module) {
             }
 
             // 第一轮布局
-            layoutNode(this.getRoot(), 1);
+            layoutNode(this.getRoot());
 
             // 第二轮布局
-            layoutNode(this.getRoot(), 2);
+            // layoutNode(this.getRoot(), 2);
 
             var minder = this;
             this.applyLayoutResult(this.getRoot(), duration, function() {
@@ -484,7 +484,7 @@ define(function(require, exports, module) {
                 }
 
                 // 如果要求以动画形式来更新，创建动画
-                if (duration) {
+                if (false) { // 不处理动画
                     node._layoutTimeline = new kity.Animator(lastMatrix, matrix, applyMatrix)
                         .start(node, duration, 'ease')
                         .on('finish', function() {

@@ -347,6 +347,7 @@ define(function(require, exports, module) {
             return result;
         },
 
+        // 新建 Minder 节点
         createNode: function(textOrData, parent, index) {
             var node = new MinderNode(textOrData);
             this.fire('nodecreate', {
@@ -354,6 +355,7 @@ define(function(require, exports, module) {
                 parent: parent,
                 index: index
             });
+            // 添加节点
             this.appendNode(node, parent, index);
             return node;
         },
@@ -378,9 +380,9 @@ define(function(require, exports, module) {
             var rc = this.getRenderContainer();
             node.traverse(function(current) {
                 current.attached = true;
-                rc.addShape(current.getRenderContainer());
+                rc.addShape(current.getRenderContainer()); // 真正的生成节点
             });
-            rc.addShape(node.getRenderContainer());
+            rc.addShape(node.getRenderContainer()); // 真正的生成节点
             this.fire('nodeattach', {
                 node: node
             });

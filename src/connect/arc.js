@@ -43,7 +43,6 @@ define(function(require, exports, module) {
 
         connection.setMarker(connectMarker);
         connectMarker.dot.fill(color);
-
         connection.setPathData(pathData);
     });
 });
